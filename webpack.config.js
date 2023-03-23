@@ -5,10 +5,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin'); //este plugin lo necesitamos en caso de tener que copiar un archivo desde nuestro proyecto source a nuestro build de dist
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.js', //nuestro punto de entrada, no es necesario aclararlo, por defecto es siempre el archivo index.js
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'main.js',
+        assetModuleFilename: 'assets/images/[hash][ext][query]'//pasamos las imagenes que copiamos con el CopyPlugin a la carpeta assets
     },
     resolve: {
         extensions: ['.js']
