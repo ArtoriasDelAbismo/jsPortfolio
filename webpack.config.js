@@ -13,7 +13,13 @@ module.exports = {
         assetModuleFilename: 'assets/images/[hash][ext][query]'//pasamos las imagenes que copiamos con el CopyPlugin a la carpeta assets
     },
     resolve: {
-        extensions: ['.js']
+        extensions: ['.js'],
+        alias: {
+            '@utils': path.resolve(__dirname, 'src/utils/'),
+            '@templates': path.resolve(__dirname, 'src/templates/'),
+            '@styles': path.resolve(__dirname, 'src/styles/'),
+            '@images': path.resolve(__dirname, 'src/assets/images'),
+        }
     },
     module: {
         rules: [
