@@ -3,9 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin'); //este plugin lo necesitamos en caso de tener que copiar un archivo desde nuestro proyecto source a nuestro build de dist
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
+const Dotenv = require('dotenv-webpack'); //para esconder nuestras variables de entorno
 
 module.exports = {
     entry: './src/index.js', //nuestro punto de entrada, no es necesario aclararlo, por defecto es siempre el archivo index.js
@@ -14,6 +12,7 @@ module.exports = {
         filename: '[name].[contenthash].js', //optimizamos y agregamos el hash para que el browser obtenga los cambios que se realicen en cada build
         assetModuleFilename: 'assets/images/[hash][ext][query]'//pasamos las imagenes que copiamos con el CopyPlugin a la carpeta assets
     },
+    mode: 'development',
     resolve: {
         extensions: ['.js'],
         alias: {
@@ -66,12 +65,5 @@ module.exports = {
             ]
         }),
         new Dotenv(),
-        new CleanWebpackPlugin(),
-    ],
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new CssMinimizerPlugin(),
-        ]
-    }
+    ]
 }
