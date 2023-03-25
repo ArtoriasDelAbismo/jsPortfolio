@@ -13,6 +13,7 @@ module.exports = {
         assetModuleFilename: 'assets/images/[hash][ext][query]'//pasamos las imagenes que copiamos con el CopyPlugin a la carpeta assets
     },
     mode: 'development',
+    watch: true, //este modo permite mantener la compilación activa para que cada cambio que realicemos se modifique automaticamente nuestra build. Una especia de Live Server para webpack
     resolve: {
         extensions: ['.js'],
         alias: {
