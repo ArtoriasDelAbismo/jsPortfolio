@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin'); //este plugin lo necesitamos en caso de tener que copiar un archivo desde nuestro proyecto source a nuestro build de dist
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+//const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 
 module.exports = {
@@ -65,7 +65,7 @@ module.exports = {
                 }
             ]
         }),
-        new Dotenv(),
+        //new Dotenv(),
         new CleanWebpackPlugin(),
     ],
     optimization: {
